@@ -1,4 +1,5 @@
 // requires https://download.gnome.org/sources/gtksourceview/3.12/gtksourceview-3.12.3.tar.xz
+#define APP "sticky"
 #include<gtk/gtk.h>
 #include<gtksourceview/gtksourceview.h>
 #define WIDTH 200
@@ -8,23 +9,28 @@ void on_window_destroy(/*GtkWidget*widget,gpointer data*/){
 }
 int main(int argc,char**argv){
 	gtk_init(&argc,&argv);
-	GtkWidget*window=gtk_window_new(GTK_WINDOW_TOPLEVEL);
-	GtkCssProvider*provider=gtk_css_provider_new();
 	GdkDisplay*display=gdk_display_get_default();
 	GdkScreen*screen=gdk_display_get_default_screen(display);
+	GtkWidget*window=gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	GtkCssProvider*provider=gtk_css_provider_new();
 	gtk_style_context_add_provider_for_screen(screen,GTK_STYLE_PROVIDER(provider),GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+//	GError*err;
+//	gtk_css_provider_load_from_path(GTK_CSS_PROVIDER(provider),"~/.gconf/sticky/sticky.css",&err);
+//	printf(" loading from path: %d  %s\n",err->code,err->message);
 	gtk_css_provider_load_from_data(GTK_CSS_PROVIDER(provider),
-		"GtkTextView{\n"
+		"GtkWindow{\n"
 		"	background-color:yellow;\n"
 		"	font-family:monospace;\n"
 		"	font-size:1em;\n"
-		"	padding:20px;\n"
+		"}\n"
+		"GtkTextView{\n"
+		"	background-color:inherit;\n"
 		"}\n"
 		,-1,NULL);
 	g_object_unref(provider);
-	gtk_window_set_title(GTK_WINDOW(window),"sticky");
+	gtk_window_set_title(GTK_WINDOW(window),APP);
 	gtk_window_set_default_size(GTK_WINDOW(window),WIDTH,HEIGHT);//? magicnum
-	//? set position at pointer
+//? set position at pointer
 	g_signal_connect(G_OBJECT(window),"destroy",G_CALLBACK (on_window_destroy),NULL);
 	GtkWidget*text_view=gtk_source_view_new();
 	gtk_container_add(GTK_CONTAINER(window),text_view);
