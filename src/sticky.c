@@ -12,6 +12,8 @@ int main(int argc,char**argv){
 	GdkDisplay*display=gdk_display_get_default();
 	GdkScreen*screen=gdk_display_get_default_screen(display);
 	GtkWidget*window=gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	g_signal_connect(G_OBJECT(window),"destroy",G_CALLBACK(on_window_destroy),NULL);
+
 	GtkCssProvider*provider=gtk_css_provider_new();
 	gtk_style_context_add_provider_for_screen(screen,GTK_STYLE_PROVIDER(provider),GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 //	GError*err;
@@ -31,7 +33,6 @@ int main(int argc,char**argv){
 	gtk_window_set_title(GTK_WINDOW(window),APP);
 	gtk_window_set_default_size(GTK_WINDOW(window),WIDTH,HEIGHT);//? magicnum
 //? set position at pointer
-	g_signal_connect(G_OBJECT(window),"destroy",G_CALLBACK (on_window_destroy),NULL);
 	GtkWidget*text_view=gtk_source_view_new();
 	gtk_container_add(GTK_CONTAINER(window),text_view);
 	gtk_widget_show_all(window);
