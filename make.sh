@@ -1,6 +1,6 @@
 BIN=sticky
 SRC=src/sticky.c
-#OPTS=-Os
+OPTS=-Os
 WARNINGS="-Wall -Wextra"
 LIBS=$(pkg-config --cflags --libs gtk+-3.0 gtksourceview-3.0)
 
