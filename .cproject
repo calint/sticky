@@ -27,7 +27,7 @@
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1669934343" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug">
 								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.exe.debug.option.optimization.level.2063495492" name="Optimization Level" superClass="gnu.c.compiler.exe.debug.option.optimization.level" valueType="enumerated"/>
 								<option id="gnu.c.compiler.exe.debug.option.debugging.level.178985978" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
-								<option id="gnu.c.compiler.option.misc.other.1888637193" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -pthread" valueType="string"/>
+								<option id="gnu.c.compiler.option.misc.other.1888637193" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -pthread $(pkg-config --cflags --libs gtk+-3.0 gtksourceview-3.0)" valueType="string"/>
 								<option id="gnu.c.compiler.option.include.paths.1220668548" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/usr/include/gtksourceview-3.0/"/>
 								</option>
@@ -35,7 +35,7 @@
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.794922233" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.805264671" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug">
-								<option id="gnu.c.link.option.paths.1828426972" name="Library search path (-L)" superClass="gnu.c.link.option.paths" valueType="libPaths"/>
+								<option id="gnu.c.link.option.paths.1828426972" name="Library search path (-L)" superClass="gnu.c.link.option.paths"/>
 								<option id="gnu.c.link.option.libs.184333648" name="Libraries (-l)" superClass="gnu.c.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="gtk-3"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="gdk-3"/>
@@ -108,6 +108,7 @@
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.release.600469430" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.release">
 								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.exe.release.option.optimization.level.1627140687" name="Optimization Level" superClass="gnu.c.compiler.exe.release.option.optimization.level" valueType="enumerated"/>
 								<option id="gnu.c.compiler.exe.release.option.debugging.level.779117044" name="Debug Level" superClass="gnu.c.compiler.exe.release.option.debugging.level" value="gnu.c.debugging.level.none" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.misc.other.888177120" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -pthread $(pkg-config --cflags --libs gtk+-3.0 gtksourceview-3.0)" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1403045224" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.release.843140868" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.release">
@@ -143,5 +144,13 @@
 		</scannerConfigBuildInfo>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
-	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Debug">
+			<resource resourceType="PROJECT" workspacePath="/sticky"/>
+		</configuration>
+		<configuration configurationName="Release">
+			<resource resourceType="PROJECT" workspacePath="/sticky"/>
+		</configuration>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cproject>
