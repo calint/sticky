@@ -1,6 +1,6 @@
 CC="gcc -std=c11"
 BIN=sticky
-SRC=sticky.c
+SRC=src/*.c
 DBG="-g -O0"
 #OPTS=-Os
 WARNINGS="-Wall -Wextra -Wpedantic -Wno-unused-parameter -Wfatal-errors"
@@ -14,5 +14,5 @@ cat $SRC|wc &&
 echo -n "   zipped:" &&
 cat $SRC|gzip|wc &&
 echo && ls -o --color $BIN &&
-echo &&
-valgrind --leak-check=yes ./$BIN
+echo 
+#valgrind --leak-check=yes ./$BIN
